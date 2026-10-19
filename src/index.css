@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+
+/* Design tokens — colors and type used across the ClearFlow Figma homepage (node 51:14) */
+@theme {
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+
+  --color-ink: #0e1116;
+  --color-muted: #5b6270;
+  --color-subtle: #9aa0ab;
+  --color-line: #e4e7eb;
+  --color-cloud: #f4f5f7;
+  --color-mist: #eceef1;
+  --color-lime: #cbf26c;
+  --color-lime-deep: #a9d93b;
+  --color-blue: #2f8fe8;
+  --color-navy: #0b3a66;
+  --color-sky: #eaf4fd;
+  --color-success: #1f9d55;
+  --color-star: #f5b423;
+
+  --shadow-float: 0 18px 44px -6px rgb(14 17 22 / 0.14);
+  --shadow-soft: 0 16px 40px -6px rgb(14 17 22 / 0.12);
+}
+
+/* Text styles — Figma letter-spacing % maps 1:1 to em. Defined as utilities so variants (lg:) work. */
+@utility t-display {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  @media (width >= 64rem) {
+    font-size: 68px;
+  }
+}
+@utility t-h2 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  @media (width >= 64rem) {
+    font-size: 50px;
+  }
+}
+@utility t-h2-cta {
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  @media (width >= 64rem) {
+    font-size: 54px;
+  }
+}
+@utility t-statement {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  @media (width >= 64rem) {
+    font-size: 36px;
+  }
+}
+@utility t-stat {
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+@utility t-h4 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+@utility t-quote {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+@utility t-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+@utility t-faq {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+@utility t-ui {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+@utility t-label {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+}
+@utility t-caption {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+@utility t-body-lg {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+@utility t-body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.003em;
+}
+@utility t-sm {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+}
+@utility t-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+}
+/* Instrument Serif italic accent inside headings: ~1.1× the Geist size, -1% tracking */
+@utility serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: -0.01em;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: #fff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  [id] {
+    scroll-margin-top: 16px;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
